@@ -115,8 +115,6 @@ async def train_async(
 def train_core(
     domain: Text, config: Text, stories: Text, output: Text, train_path: Optional[Text]
 ) -> Optional[Text]:
-    config = get_valid_config(config, CONFIG_MANDATORY_KEYS_CORE)
-
     loop = asyncio.get_event_loop()
     return loop.run_until_complete(
         train_core_async(domain, config, stories, output, train_path)
